@@ -1,12 +1,12 @@
-# 📊 Market Campaign Analysis using Machine Learning
+#  Market Campaign Analysis using Machine Learning
 
-## 🧠 Project Overview  
+##  Project Overview  
 This project focuses on analyzing and predicting the success of marketing campaigns using machine learning techniques.  
 By exploring customer data, the model identifies key features influencing customer responses and helps businesses design more effective, targeted campaigns.
 
 ---
 
-## 🎯 Objective  
+##  Objective  
 Many companies run marketing campaigns but often struggle to identify which customers are most likely to respond positively.  
 This project aims to:
 - Understand customer behavior through data analysis.  
@@ -15,7 +15,7 @@ This project aims to:
 
 ---
 
-## 📂 Dataset  
+##  Dataset  
 - **File:** `superstore_data.csv`  
 - **Description:** Contains information about customers, their demographics, past purchases, and responses to marketing campaigns.  
 - **Key Columns:**  
@@ -27,7 +27,7 @@ This project aims to:
 
 ---
 
-## ⚙️ Tech Stack  
+##  Tech Stack  
 - **Language:** Python 🐍  
 - **Tools & Libraries:**  
   - pandas, numpy — data manipulation  
@@ -37,7 +37,7 @@ This project aims to:
 
 ---
 
-## 🔍 Project Workflow  
+##  Project Workflow  
 1. **Data Loading & Cleaning**  
    - Handle missing values, duplicates, and inconsistent data.  
    - Encode categorical variables.  
@@ -60,7 +60,7 @@ This project aims to:
 
 ---
 
-## 📈 Results  
+## Results  
 - The best-performing model achieved:  
   - **Accuracy:** ~85%  
   - **Precision:** ~82%  
@@ -72,9 +72,9 @@ This project aims to:
 
 ---
 
-## 🧪 How to Run the Project  
+##  How to Run the Project  
 
-### 1️⃣ Clone the Repository  
+### Clone the Repository  
 git clone https://github.com/kashish2610/ML_Project_Market_campign.git
 cd ML_Project_Market_campign
 
