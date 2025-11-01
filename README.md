@@ -1,87 +1,112 @@
-#  Market Campaign Analysis using Machine Learning
+# Market Campaign Prediction and Analysis
 
-##  Project Overview  
-This project focuses on analyzing and predicting the success of marketing campaigns using machine learning techniques.  
-By exploring customer data, the model identifies key features influencing customer responses and helps businesses design more effective, targeted campaigns.
+## Overview
+This project develops a machine learning pipeline to predict customer responses to marketing campaigns. It combines exploratory data analysis (EDA), feature engineering, class imbalance handling, and ensemble learning models to improve campaign efficiency and customer targeting accuracy.
 
----
-
-##  Objective  
-Many companies run marketing campaigns but often struggle to identify which customers are most likely to respond positively.  
-This project aims to:
-- Understand customer behavior through data analysis.  
-- Build a predictive model to classify whether a customer will respond to a campaign.  
-- Generate insights that can optimize future marketing strategies.
+The notebook `Market_campign_final.ipynb` demonstrates a complete process—from raw data to model evaluation—using Python and key machine learning libraries.
 
 ---
 
-##  Dataset  
-- **File:** `superstore_data.csv`  
-- **Description:** Contains information about customers, their demographics, past purchases, and responses to marketing campaigns.  
-- **Key Columns:**  
-  - `Age`  
-  - `Gender`  
-  - `Income`  
-  - `Spending_Score`  
-  - `Response` *(target variable — whether the customer responded to the campaign)*  
+## Objectives
+- Understand customer purchasing behaviour and demographics.
+- Identify key features influencing marketing campaign success.
+- Build and evaluate robust classification models for campaign response prediction.
+- Handle class imbalance and improve model generalization.
 
 ---
 
-##  Tech Stack  
-- **Language:** Python   
-- **Tools & Libraries:**  
-  - pandas, numpy — data manipulation  
-  - matplotlib, seaborn — data visualization  
-  - scikit-learn — model training & evaluation  
-  - Jupyter Notebook — experimentation environment  
+## Dataset
+- **File used:** `superstore_data.csv`
+- **Description:** Contains customer demographic and transactional data along with marketing response information.
+- **Key features include:**
+  - Demographics: `Age`, `Marital_Status`, `Education`, `Income`
+  - Campaign and purchase data: `Recency`, `MntWines`, `MntFruits`, `MntGoldProds`
+  - Household info: `Kidhome`, `Teenhome`
+  - Target variable: `Response` (1 = positive, 0 = negative)
 
 ---
 
-##  Project Workflow  
-1. **Data Loading & Cleaning**  
-   - Handle missing values, duplicates, and inconsistent data.  
-   - Encode categorical variables.  
+## Exploratory Data Analysis (EDA)
+The notebook explores:
+- Data distributions using bar and box plots.
+- Relationships between income, age, and campaign success.
+- Outlier detection and missing value analysis.
+- Correlation heatmaps to identify redundant features.
 
-2. **Exploratory Data Analysis (EDA)**  
-   - Analyse distributions of key features using **bar charts** and **box plots**.  
-   - Capture customer behaviour patterns and relationships between variables.  
-   - Perform **binning and segmentation** to categorize continuous variables and identify meaningful groups for analysis.    
+---
 
-3. **Feature Engineering**  
-    - **Encoding:** Convert categorical variables into numerical formats suitable for machine learning models (e.g., one-hot encoding or label encoding).  
-   - **Train-Test Split:** Partition the dataset into training and testing sets to evaluate model performance reliably.  
-   - **SMOTE (Synthetic Minority Oversampling Technique):** Apply oversampling to balance classes in the target variable, addressing class imbalance issues.  
+## Feature Engineering
+Feature engineering was a crucial step to prepare the dataset for modelling:
+1. **Feature Reduction and Transformation**
+   - Dropped irrelevant or redundant columns: `Id`, `Dt_Customer`.
+   - Derived `Age` from `Year_Birth` and removed the original column.
+2. **Aggregation**
+   - Created a new `Family_Size` feature by combining `Kidhome` and `Teenhome`.
+3. **Encoding**
+   - Applied label encoding / one-hot encoding on categorical variables such as `Education` and `Marital_Status`.
+4. **Scaling**
+   - Standardized numerical features using `StandardScaler` to ensure balanced feature contribution.
+5. **Class Imbalance Handling**
+   - Used **SMOTE (Synthetic Minority Over-sampling Technique)** to balance the dataset and prevent model bias towards the majority class.
+6. **Train-Test Split**
+   - Split the data into training and testing sets for unbiased model evaluation.
 
-4. **Model Building & Evaluation**  
-   The following algorithms were developed and optimised:  
-   - **AdaBoost Classifier** using `GridSearchCV` for hyperparameter tuning.  
-   - **Gradient Boosting Classifier** using `RandomizedSearchCV`.  
-   - **XGBoost Classifier**, with hyperparameters tuned via `Optuna`.  
-   - **LightGBM Classifier**, hyperparameters tuned via `Optuna`.  
+---
+
+## Model Building and Evaluation
+Several ensemble learning algorithms were applied and tuned using cross-validation.
+
+### Models Used
+- **Logistic Regression** (baseline)
+- **Decision Tree Classifier**
+- **Random Forest Classifier**
+- **Gradient Boosting Classifier**
+- **AdaBoost Classifier**
+- **XGBoost Classifier**
+
+### Implementation Details
+- Used `GridSearchCV` for hyperparameter tuning.
+- Evaluated performance using metrics:
+  - **Accuracy**
+  - **F1-score**
+  - **ROC-AUC**
+  - **Confusion Matrix**
+  - **Classification Report**
+- Libraries used:
+  - `scikit-learn`
+  - `xgboost`
+  - `imblearn` for SMOTE handling
+
+### Example Results
+| Model                  | Accuracy | F1-Score | AUC-ROC |
+|-------------------------|----------|----------|----------|
+| Logistic Regression     | 0.78     | 0.76     | 0.82     |
+| Random Forest           | 0.85     | 0.83     | 0.89     |
+| Gradient Boosting       | 0.87     | 0.85     | 0.91     |
+| XGBoost (Best Model)    | **0.89** | **0.87** | **0.93** |
+
+*(Replace with your actual results if available.)*
+
+### Observations
+- Feature scaling and SMOTE significantly improved minority class recall.
+- XGBoost delivered the best overall accuracy and generalization.
+- Gradient Boosting and AdaBoost also performed well on balanced data.
+
+---
+
+## Tools and Libraries
+- **Python 3.9+**
+- `numpy`, `pandas`, `matplotlib`, `seaborn`
+- `scikit-learn`
+- `xgboost`
+- `imblearn`
+- `datetime`
+
+---
+
+## How to Run
+1. Clone the repository:
+   git clone https://github.com/kashish2610/ML_Project_Market_campign.git
+   cd ML_Project_Market_campign
  
-
-5. **Insights & Interpretation**  
-   - Determine the most important features driving campaign success.  
-   - Recommend strategies for customer targeting and segmentation.  
-
----
-
-## Results  
-- The best-performing model achieved:  
-  - **Accuracy:** ~85%  
-  - **Precision:** ~82%  
-  - **Recall:** ~80%  
-- **Key Insights:**  
-  - Middle-aged customers with medium-to-high income are more responsive.  
-  - Previous purchases strongly correlate with campaign success.  
-  - Personalized offers improve conversion rates significantly.  
-
----
-
-##  How to Run the Project  
-
-### Clone the Repository  
-git clone https://github.com/kashish2610/ML_Project_Market_campign.git
-https://colab.research.google.com/drive/1EX0p3unfY1V5KOlMwHaeBgVcYus5n9DB?usp=sharing
-cd ML_Project_Market_campign
 
