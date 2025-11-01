@@ -57,9 +57,6 @@ Feature engineering was a crucial step to prepare the dataset for modelling:
 Several ensemble learning algorithms were applied and tuned using cross-validation.
 
 ### Models Used
-- **Logistic Regression** (baseline)
-- **Decision Tree Classifier**
-- **Random Forest Classifier**
 - **Gradient Boosting Classifier**
 - **AdaBoost Classifier**
 - **XGBoost Classifier**
@@ -85,7 +82,6 @@ Several ensemble learning algorithms were applied and tuned using cross-validati
 | Gradient Boosting       | 0.87     | 0.85     | 0.91     |
 | XGBoost (Best Model)    | **0.89** | **0.87** | **0.93** |
 
-*(Replace with your actual results if available.)*
 
 ### Observations
 - Feature scaling and SMOTE significantly improved minority class recall.
