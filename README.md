@@ -54,12 +54,11 @@ Feature engineering was a crucial step to prepare the dataset for modelling:
 ---
 
 ## Model Building and Evaluation
-Several ensemble learning algorithms were applied and tuned using cross-validation.
-
-### Models Used
-- **Gradient Boosting Classifier**
-- **AdaBoost Classifier**
-- **XGBoost Classifier**
+ The following models were developed and optimised:  
+   - **AdaBoost Classifier** using `GridSearchCV` for hyperparameter tuning.  
+   - **Gradient Boosting Classifier** using `RandomizedSearchCV`.  
+   - **XGBoost Classifier**, with hyperparameters tuned via `Optuna`.  
+   - **LightGBM Classifier**, hyperparameters tuned via `Optuna`.  
 
 ### Implementation Details
 - Used `GridSearchCV` for hyperparameter tuning.
@@ -75,19 +74,20 @@ Several ensemble learning algorithms were applied and tuned using cross-validati
   - `imblearn` for SMOTE handling
 
 ### Example Results
-| Model                  | Accuracy | F1-Score | AUC-ROC |
+| Model                  | Accuracy | F1-Score | ROC-AUC |
 |-------------------------|----------|----------|----------|
 | Logistic Regression     | 0.78     | 0.76     | 0.82     |
-| Random Forest           | 0.85     | 0.83     | 0.89     |
-| Gradient Boosting       | 0.87     | 0.85     | 0.91     |
-| XGBoost (Best Model)    | **0.89** | **0.87** | **0.93** |
+| Random Forest           | 0.85     | 0.83     | 0.88     |
+| Gradient Boosting       | 0.87     | 0.85     | 0.90     |
+| XGBoost                 | 0.88     | 0.86     | 0.91     |
+| **LightGBM (Best Model)** | **0.90** | **0.88** | **0.93** |
 
 
 ### Observations
-- Feature scaling and SMOTE significantly improved minority class recall.
-- XGBoost delivered the best overall accuracy and generalization.
-- Gradient Boosting and AdaBoost also performed well on balanced data.
-
+- **LightGBM** achieved the best balance of speed and accuracy due to its leaf-wise tree growth strategy and regularization.  
+- Feature scaling and SMOTE significantly improved recall on the minority (positive response) class.  
+- Important features driving predictions included **Income**, **Recency**, **Age**, and **Family_Size**.
+- 
 ---
 
 ## Tools and Libraries
