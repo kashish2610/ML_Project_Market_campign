@@ -82,5 +82,6 @@ This project aims to:
 
 ### Clone the Repository  
 git clone https://github.com/kashish2610/ML_Project_Market_campign.git
+https://colab.research.google.com/drive/1EX0p3unfY1V5KOlMwHaeBgVcYus5n9DB?usp=sharing
 cd ML_Project_Market_campign
 
