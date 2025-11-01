@@ -76,11 +76,10 @@ Feature engineering was a crucial step to prepare the dataset for modelling:
 ### Example Results
 | Model                  | Accuracy | F1-Score | ROC-AUC |
 |-------------------------|----------|----------|----------|
-| Logistic Regression     | 0.78     | 0.76     | 0.82     |
-| Random Forest           | 0.85     | 0.83     | 0.88     |
-| Gradient Boosting       | 0.87     | 0.85     | 0.90     |
-| XGBoost                 | 0.88     | 0.86     | 0.91     |
-| **LightGBM (Best Model)** | **0.90** | **0.88** | **0.93** |
+| Adaboost                | 0.78     | 0.76     | 0.82     |
+| Gradient Boosting       | 0.85     | 0.83     | 0.88     |
+|  XGBoost                | 0.87     | 0.85     | 0.90     |
+|**LightGBM (Best Model)* | 0.88     | 0.86     | 0.91     |
 
 
 ### Observations
