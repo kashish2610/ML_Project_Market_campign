@@ -23,8 +23,19 @@ The notebook `Market_campign_final.ipynb` demonstrates a complete process—from
   - Campaign and purchase data: `Recency`, `MntWines`, `MntFruits`, `MntGoldProds`
   - Household info: `Kidhome`, `Teenhome`
   - Target variable: `Response` (1 = positive, 0 = negative)
-
+    
 ---
+## Tech Stack  
+- **Programming Language:** Python  
+- **Libraries / Tools:**  
+  - pandas, numpy — for data manipulation  
+  - matplotlib, seaborn — for data visualisation  
+  - scikit-learn — for model training and evaluation  
+  - xgboost, lightgbm — gradient boosting frameworks  
+  - optuna — for hyperparameter tuning  
+  - Jupyter Notebook / Google Colab — for development and analysis
+    
+---    
 
 ## Exploratory Data Analysis (EDA)
 The notebook explores:
@@ -65,7 +76,7 @@ Feature engineering was a crucial step to prepare the dataset for modelling:
 - Evaluated performance using metrics:
   - **Accuracy**
   - **F1-score**
-  - **ROC-AUC**
+  - **AUC**
   - **Confusion Matrix**
   - **Classification Report**
 - Libraries used:
@@ -79,11 +90,11 @@ Feature engineering was a crucial step to prepare the dataset for modelling:
 | Adaboost                | 0.78     | 0.76     | 0.82     |
 | Gradient Boosting       | 0.85     | 0.83     | 0.88     |
 |  XGBoost                | 0.87     | 0.85     | 0.90     |
-|**LightGBM (Best Model)* | 0.88     | 0.86     | 0.91     |
+
 
 
 ### Observations
-- **LightGBM** achieved the best balance of speed and accuracy due to its leaf-wise tree growth strategy and regularization.  
+- **XGBoost** achieved the best balance of speed and accuracy due to its leaf-wise tree growth strategy and regularization.  
 - Feature scaling and SMOTE significantly improved recall on the minority (positive response) class.  
 - Important features driving predictions included **Income**, **Recency**, **Age**, and **Family_Size**.
 - 
