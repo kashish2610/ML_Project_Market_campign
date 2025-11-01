@@ -28,7 +28,7 @@ This project aims to:
 ---
 
 ##  Tech Stack  
-- **Language:** Python 🐍  
+- **Language:** Python   
 - **Tools & Libraries:**  
   - pandas, numpy — data manipulation  
   - matplotlib, seaborn — data visualization  
@@ -43,16 +43,22 @@ This project aims to:
    - Encode categorical variables.  
 
 2. **Exploratory Data Analysis (EDA)**  
-   - Visualize data distributions and correlations.  
-   - Identify key patterns influencing customer response.  
+   - Analyse distributions of key features using **bar charts** and **box plots**.  
+   - Capture customer behaviour patterns and relationships between variables.  
+   - Perform **binning and segmentation** to categorize continuous variables and identify meaningful groups for analysis.    
 
 3. **Feature Engineering**  
-   - Derive new variables from existing ones (e.g., income brackets, purchase frequency).  
+    - **Encoding:** Convert categorical variables into numerical formats suitable for machine learning models (e.g., one-hot encoding or label encoding).  
+   - **Train-Test Split:** Partition the dataset into training and testing sets to evaluate model performance reliably.  
+   - **SMOTE (Synthetic Minority Oversampling Technique):** Apply oversampling to balance classes in the target variable, addressing class imbalance issues.  
 
 4. **Model Building & Evaluation**  
-   - Train multiple models (e.g., Logistic Regression, Random Forest).  
-   - Evaluate using metrics like Accuracy, Precision, Recall, and F1-score.  
-   - Select the best-performing model for prediction.  
+   The following algorithms were developed and optimised:  
+   - **AdaBoost Classifier** using `GridSearchCV` for hyperparameter tuning.  
+   - **Gradient Boosting Classifier** using `RandomizedSearchCV`.  
+   - **XGBoost Classifier**, with hyperparameters tuned via `Optuna`.  
+   - **LightGBM Classifier**, hyperparameters tuned via `Optuna`.  
+ 
 
 5. **Insights & Interpretation**  
    - Determine the most important features driving campaign success.  
